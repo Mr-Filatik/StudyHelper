@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package main_entities;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "StudyHelper.Library.Network.Shared";
+
+message TimeProcessingGrpc {
+  google.protobuf.Timestamp requestTime = 1;
+  google.protobuf.Timestamp responceTime = 2;
+}

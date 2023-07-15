@@ -7,4 +7,13 @@
 	<RootNamespace>StudyHelper.Library.Network.Shared</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Google.Api.Gax.Grpc" Version="4.4.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.55.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Protobuf Include="Protos\**\*.proto" />
+  </ItemGroup>
+
 </Project>
