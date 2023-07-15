@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package test;
+
+import "Protos/Shared/annotations.proto";
+import "Protos/Messages/main_entities.proto";
+//import "google/protobuf/empty.proto";
+
+option csharp_namespace = "StudyHelper.Library.Network.Shared";
+
+service Test {
+  rpc Test (TestRequest) returns (TestResponse) {
+    option (google.api.http) = {
+      get: "/api/test/{message}"
+    };
+  }
+}
+
+message TestRequest {
+  string message = 1;
+}
+
+message TestResponse {
+  string message = 1;
+  main_entities.TimeProcessingGrpc timeProcessing = 2;
+}
+
