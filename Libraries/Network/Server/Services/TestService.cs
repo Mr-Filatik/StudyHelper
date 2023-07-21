@@ -1,9 +1,9 @@
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-using StudyHelper.Application.Server;
-using StudyHelper.Application.Server.Other;
+using Microsoft.Extensions.Logging;
 using StudyHelper.Library.Network.Shared;
 
-namespace StudyHelper.Application.Server.Services
+namespace StudyHelper.Library.Network.Server
 {
     public class TestService : Test.TestBase
     {
@@ -23,10 +23,16 @@ namespace StudyHelper.Application.Server.Services
                 Message = $"Responce on request ({request.Message})",
                 TimeProcessing = new TimeProcessingGrpc()
                 {
-                    RequestTime = Converters.ToTimestamp(requestTime),
-                    ResponceTime = Converters.ToTimestamp(DateTime.UtcNow)
+                    RequestTime = ToTimestamp(requestTime),
+                    ResponceTime = ToTimestamp(DateTime.UtcNow)
                 }
             });
+        }
+
+        public static Timestamp ToTimestamp(DateTime? dateTime)
+        {
+            if (dateTime == null || !dateTime.HasValue) return new Timestamp();
+            return Timestamp.FromDateTime(DateTime.SpecifyKind(dateTime.Value, DateTimeKind.Utc));
         }
     }
 }
