@@ -1,4 +1,4 @@
-using StudyHelper.Application.Server.Services;
+using StudyHelper.Library.Network.Server;
 
 namespace StudyHelper.Application.Server
 {
@@ -6,7 +6,6 @@ namespace StudyHelper.Application.Server
     {
         public static void Main(string[] args)
         {
-
             #region Builder
 
             var builder = WebApplication.CreateBuilder(args);
