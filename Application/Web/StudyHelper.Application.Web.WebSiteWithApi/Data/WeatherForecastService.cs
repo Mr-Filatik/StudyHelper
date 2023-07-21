@@ -1,4 +1,4 @@
-namespace WebSiteWithApi.Data
+namespace StudyHelper.Application.Web.WebSiteWithApi.Data
 {
     public class WeatherForecastService
     {

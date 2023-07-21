@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<RootNamespace>StudyHelper.Application.Web.WebSiteWithApi</RootNamespace>
   </PropertyGroup>
 
 </Project>
