@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.DependencyInjection;
 using StudyHelper.Application.Web.WebSiteWithApi.Data;
+using StudyHelper.Library.Network.Client.Grpc;
+using StudyHelper.Library.Network.Server;
 
 namespace StudyHelper.Application.Web.WebSiteWithApi
 {
@@ -14,6 +17,9 @@ namespace StudyHelper.Application.Web.WebSiteWithApi
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
             builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddSingleton<TestClient>();
+
+            builder.Services.AddGrpc().AddJsonTranscoding();
 
             var app = builder.Build();
 
@@ -25,11 +31,15 @@ namespace StudyHelper.Application.Web.WebSiteWithApi
                 app.UseHsts();
             }
 
+            app.UsePathBase("/web");
+
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.MapGrpcService<TestService>();
 
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");

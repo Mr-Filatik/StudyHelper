@@ -4,7 +4,11 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	<RootNamespace>StudyHelper.Application.Web.WebSiteWithApi</RootNamespace>
+	<RootNamespace>StudyHelper.Application.Web.WebSite</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\Network\Client\Grpc\Grpc.csproj" />
+  </ItemGroup>
 
 </Project>
