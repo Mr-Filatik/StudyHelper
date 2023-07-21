@@ -1,0 +1,49 @@
+﻿@page "/counter"
+
+@using StudyHelper.Library.Network.Shared;
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@if (response == null)
+{
+    <p role="status">Нет данных</p>
+}
+else
+{
+    <p role="status">Message: @response.Message</p>
+    <p role="status">Current count: @response.TimeProcessing.RequestTime</p>
+    <p role="status">Current count: @response.TimeProcessing.ResponceTime</p>
+}
+
+@code {
+    private int currentCount = 0;
+    private string message = null;
+    private string requestTime = null;
+    private string responseTime = null;
+    private TestResponse response = null;
+
+    private async Task IncrementCount()
+    {
+        currentCount++;
+        //первое нажатие видимо долго содаёт объект, поэтому оно не отрабатывает до конца
+        //это происходило из-за void возвращаемого типа
+        var i = new TestClient("https://localhost:7147/");
+        response = await i.TestWithDelayAsync("my message");
+        currentCount++;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        //var i = new TestClient("https://localhost:7147/");
+        //var o = await i.TestWithDelayAsync("my message");
+        //message = o.Message;
+        //requestTime = o.TimeProcessing.RequestTime.ToString();
+        //responseTime = o.TimeProcessing.ResponceTime.ToString();
+    }
+}

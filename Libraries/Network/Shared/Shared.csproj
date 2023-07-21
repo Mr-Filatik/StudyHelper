@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	<Protobuf Include="Protos\**\*.proto" />
+	<Protobuf Include="Protos\*.proto" />
+	<Protobuf Include="Protos\Messages\*.proto" />
   </ItemGroup>
 
 </Project>
