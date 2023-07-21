@@ -28,10 +28,11 @@ else
     private string responseTime = null;
     private TestResponse response = null;
 
-    private async void IncrementCount()
+    private async Task IncrementCount()
     {
         currentCount++;
         //первое нажатие видимо долго содаёт объект, поэтому оно не отрабатывает до конца
+        //это происходило из-за void возвращаемого типа
         var i = new TestClient("https://localhost:7147/");
         response = await i.TestWithDelayAsync("my message");
         currentCount++;
