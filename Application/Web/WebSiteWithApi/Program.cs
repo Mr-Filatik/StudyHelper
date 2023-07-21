@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using StudyHelper.Application.Client.Web.WebSite.Data;
+using WebSiteWithApi.Data;
 
-namespace StudyHelper.Application.Client.Web.WebSite
+namespace WebSiteWithApi
 {
     public class Program
     {
