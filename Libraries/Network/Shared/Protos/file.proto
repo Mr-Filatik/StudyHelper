@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package file;
+
+import "Protos/Shared/annotations.proto";
+import "Protos/Messages/main_entities.proto";
+//import "google/protobuf/empty.proto";
+
+option csharp_namespace = "StudyHelper.Library.Network.Shared";
+
+service File {
+  rpc CreateFile (CreateFileRequest) returns (CreateFileResponse) {
+    option (google.api.http) = {
+      post: "/api/file/create",
+      body: "*"
+    };
+  }
+  //deleteFile
+  //renameFile
+  //replaceFile
+  //changeFile
+  //getFiles
+  //
+  rpc UploadFile (UploadFileRequest) returns (UploadFileResponse) {
+    option (google.api.http) = {
+      get: "/api/file/upload"
+    };
+  }
+  rpc DownloadFile (DownloadFileRequest) returns (DownloadFileResponse) {
+    option (google.api.http) = {
+      get: "/api/file/download"
+    };
+  }
+}
+
+message CreateFileRequest {
+
+}
+
+message CreateFileResponse {
+  string fileId = 1;
+}
+
+message UploadFileRequest {
+  string fileId = 1;
+}
+
+message UploadFileResponse {
+  string status = 1;
+}
+
+message DownloadFileRequest {
+  string fileId = 1;
+}
+
+message DownloadFileResponse {
+  string message = 1;
+  main_entities.TimeProcessingGrpc timeProcessing = 2;
+}
+
+//add enum status
+

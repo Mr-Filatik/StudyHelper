@@ -3,6 +3,8 @@ using Grpc.Core;
 using Microsoft.Extensions.Logging;
 using StudyHelper.Library.Network.Shared;
 
+using Test = StudyHelper.Library.Network.Shared.Test;
+
 namespace StudyHelper.Library.Network.Server
 {
     public class TestService : Test.TestBase

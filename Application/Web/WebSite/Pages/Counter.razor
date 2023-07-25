@@ -31,19 +31,12 @@ else
     private async Task IncrementCount()
     {
         currentCount++;
-        //первое нажатие видимо долго содаёт объект, поэтому оно не отрабатывает до конца
-        //это происходило из-за void возвращаемого типа
         var i = new TestClient("https://localhost:7147/");
-        response = await i.TestWithDelayAsync("my message");
-        currentCount++;
+        response = await i.TestAsync("my message");
     }
 
     protected override async Task OnInitializedAsync()
     {
-        //var i = new TestClient("https://localhost:7147/");
-        //var o = await i.TestWithDelayAsync("my message");
-        //message = o.Message;
-        //requestTime = o.TimeProcessing.RequestTime.ToString();
-        //responseTime = o.TimeProcessing.ResponceTime.ToString();
+        message = "Inizialize";
     }
 }

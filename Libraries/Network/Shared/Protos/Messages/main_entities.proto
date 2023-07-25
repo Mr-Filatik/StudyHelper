@@ -10,3 +10,9 @@ message TimeProcessingGrpc {
   google.protobuf.Timestamp requestTime = 1;
   google.protobuf.Timestamp responceTime = 2;
 }
+
+message PartGrpc {
+  int32 currentPart = 1;
+  int32 totalParts = 2;
+  //int32 splitNumber = 3;
+}

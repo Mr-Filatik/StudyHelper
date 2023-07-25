@@ -8,11 +8,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/web/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
-    <link href="WebApi.styles.css" rel="stylesheet" /> <!--изменено на имя проекта-->
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <base href="/web/" /> <!-- для того чтобы все начинались с этого пути-->
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" /> <!-- c ../ будет отображаться-->
+    <link href="../css/site.css" rel="stylesheet" /> <!-- c ../ будет отображаться-->
+    <link href="../WebApi.styles.css" rel="stylesheet" /> <!--изменено на имя проекта из которого вызван-->
+    <link rel="icon" type="image/png" href="../favicon.png" /> <!-- c ../ будет отображаться-->
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
 <body>
@@ -29,6 +29,6 @@
         <a class="dismiss">🗙</a>
     </div>
 
-    <script src="_framework/blazor.server.js"></script>
+    <script src="../_framework/blazor.server.js"></script> <!-- c ../ будет отображаться-->
 </body>
 </html>

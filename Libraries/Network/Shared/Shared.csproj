@@ -17,4 +17,8 @@
 	<Protobuf Include="Protos\Messages\*.proto" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Protos\file.proto" />
+  </ItemGroup>
+
 </Project>
