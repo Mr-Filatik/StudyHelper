@@ -7,12 +7,18 @@ import "google/protobuf/timestamp.proto";
 option csharp_namespace = "StudyHelper.Library.Network.Shared";
 
 message TimeProcessingGrpc {
-  google.protobuf.Timestamp requestTime = 1;
-  google.protobuf.Timestamp responceTime = 2;
+  google.protobuf.Timestamp start = 1;
+  google.protobuf.Timestamp end = 2;
 }
 
 message PartGrpc {
-  int32 currentPart = 1;
-  int32 totalParts = 2;
+  int32 current = 1;
+  int32 total = 2;
   //int32 splitNumber = 3;
+}
+
+message FileInfoGrpc {
+  string name = 1;
+  string extention = 2;
+  float size = 3; //m.b. double
 }

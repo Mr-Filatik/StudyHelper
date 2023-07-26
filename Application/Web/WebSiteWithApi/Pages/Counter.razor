@@ -28,7 +28,7 @@
         var i = new TestClient();
         var o = await i.TestAsync("my message");
         message = o.Message;
-        requestTime = o.TimeProcessing.RequestTime.ToString();
-        responseTime = o.TimeProcessing.ResponceTime.ToString();
+        requestTime = o.TimeProcessing.Start.ToString();
+        responseTime = o.TimeProcessing.End.ToString();
     }
 }

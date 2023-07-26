@@ -35,6 +35,14 @@ namespace StudyHelper.Application.Web.WebApi
             app.UseBlazorFrameworkFiles(); //для обслуживания статических файлов Blazor, таких как blazor.server.jsили, blazor.webassembly.jsи сборок приложений, загруженных в WebAssembly.
             app.UseBlazorFrameworkFiles("/student");
 
+            //для указания свох wwwroot для WebSite (совместно с href="../)
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), @"./../WebSite/wwwroot")),
+                //RequestPath = new PathString("/")
+            });
+
             app.UseRouting(); //при смене их мест, можно пользоваться редиректами в мапинге
             app.UsePathBase("/web");
 

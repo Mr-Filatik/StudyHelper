@@ -25,8 +25,8 @@ namespace StudyHelper.Library.Network.Server
                 Message = $"Responce on request ({request.Message})",
                 TimeProcessing = new TimeProcessingGrpc()
                 {
-                    RequestTime = ToTimestamp(requestTime),
-                    ResponceTime = ToTimestamp(DateTime.UtcNow)
+                    Start = ToTimestamp(requestTime),
+                    End = ToTimestamp(DateTime.UtcNow)
                 }
             });
         }
